@@ -1,3 +1,4 @@
 .sass-cache/*
 assets/.sass-cache/*
 prepros-6.config
+assets/js/__main.js

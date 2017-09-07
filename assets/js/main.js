@@ -1,6 +1,5 @@
 //--------------------------------------------------------------
 axios.defaults.baseURL = 'https://dog.ceo';
-
 //get request to a list of names of dogs
 axios.get('/api/breeds/list')
   .then(function (response) {
@@ -59,13 +58,6 @@ function getBreedName(link) {
 //creates section .gallery with all images in arr
 function renderGallery(arr) {
   let parentNode = document.querySelector(".gallery");
-  // //delete all previous content and create a button to go back
-  // // parentNode.innerHTML = "";
-  // let button = document.createElement('button');
-  // button.classList.add('gallery__button');
-  // button.innerText = "Go back";
-  // galleryDiv.appendChild(button);
-  // console.log(button);
   arr.forEach(item => {
     let childNode = document.createElement("img");
     childNode.src = item;
@@ -75,7 +67,7 @@ function renderGallery(arr) {
   });
   createMasonry(parentNode);
 }
-//create Masonry object
+//create Masonry object when all images loaded
 function createMasonry(element) {
   //using Images Loaded in .gallery section
   //"You images done yet or what?"
@@ -109,20 +101,18 @@ function createBreedGallery(breed) {
 //--------------------------------------------------------------
 function showGallery() {
   let mainDiv = document.querySelector('.main');
-  mainDiv.style.left = "-100%";
+  mainDiv.style.left = "-150vw";
   let galleryDiv = document.querySelector('.gallery');
   galleryDiv.style.left = "0%";
   //create a button to go back
-  // parentNode.innerHTML = "";
   let button = document.createElement('button');
-  button.classList.add('gallery__button');
-  button.innerText = "Go back";
+  button.className = 'gallery__button animated infinite pulse';
   galleryDiv.appendChild(button);
-  console.log(button);
   button.addEventListener('click', function(){
     mainDiv.style.left = "0%";
-    galleryDiv.style.left = "100%";
+    galleryDiv.style.left = "150vw";
     //delete all previous content
     galleryDiv.innerHTML = "";
+    galleryDiv.style.height = "0";
   })
 }
