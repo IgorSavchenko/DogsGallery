@@ -39,6 +39,8 @@ body{
   transition: all 1s ease;
   &__item {
     width: 25%;
+    padding: 2px;
+    border-radius: 2%;
   }
   &__button{
     position: absolute;

@@ -72,19 +72,19 @@ function createMasonry(element) {
   //using Images Loaded in .gallery section
   //"You images done yet or what?"
   let imgLoad = imagesLoaded('.gallery');
-  imgLoad.on( 'always', function() {
-    console.log( imgLoad.images.length + ' images loaded' );
-    //creates Masonry object from .gallery
-    let msnry = new Masonry( element, {
-      // options
-      itemSelector: ".gallery__item"
-    });
+  imgLoad.on( 'progress', function(instance, image) {
+    console.log( imgLoad.images.length + ' images have to be loaded' );
     // detect which image is broken
     for ( var i = 0, len = imgLoad.images.length; i < len; i++ ) {
       var image = imgLoad.images[i];
       var result = image.isLoaded ? 'loaded' : 'broken';
       console.log( 'image is ' + result + ' for ' + image.img.src );
     }
+    //creates Masonry object from .gallery
+    let msnry = new Masonry( element, {
+      // options
+      itemSelector: ".gallery__item"
+    });
   });
 }
 //creates section .gallery

@@ -38,6 +38,8 @@ body {
 
 .gallery__item {
   width: 25%;
+  padding: 2px;
+  border-radius: 2%;
 }
 
 .gallery__button {
